@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ✨ | Una historia que volvió</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(120, 82, 180, .18), transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(180, 130, 60, .12), transparent 25%),
+                #080b13;
+            color: #f4eee0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ESTRELLAS */
+
+        .stars,
+        .stars::before,
+        .stars::after {
+            position: fixed;
+            inset: 0;
+            content: "";
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .stars {
+            background-image:
+                radial-gradient(2px 2px at 10% 20%, white, transparent),
+                radial-gradient(1px 1px at 25% 80%, white, transparent),
+                radial-gradient(2px 2px at 40% 30%, white, transparent),
+                radial-gradient(1px 1px at 60% 15%, white, transparent),
+                radial-gradient(2px 2px at 75% 50%, white, transparent),
+                radial-gradient(1px 1px at 90% 25%, white, transparent),
+                radial-gradient(2px 2px at 80% 85%, white, transparent),
+                radial-gradient(1px 1px at 35% 60%, white, transparent);
+            opacity: .65;
+            animation: estrellas 8s infinite alternate;
+        }
+
+        @keyframes estrellas {
+            from {
+                opacity: .35;
+            }
+
+            to {
+                opacity: .85;
+            }
+        }
+
+        /* PORTADA */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .small-title {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #c9a96e;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 9vw, 90px);
+            line-height: .95;
+            margin-bottom: 25px;
+            color: #fff8e8;
+            text-shadow:
+                0 0 10px rgba(255,255,255,.15),
+                0 0 30px rgba(117,78,170,.25);
+        }
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #cfc8bb;
+        }
+
+        .magic-btn {
+            margin-top: 35px;
+            border: 1px solid #c9a96e;
+            background: rgba(201,169,110,.08);
+            color: #f5dfae;
+            padding: 15px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 16px;
+            transition: .3s;
+        }
+
+        .magic-btn:hover {
+            transform: translateY(-4px);
+            background: #c9a96e;
+            color: #080b13;
+            box-shadow: 0 0 30px rgba(201,169,110,.35);
+        }
+
+        /* CONTENEDOR */
+
+        .container {
+            width: min(1000px, 92%);
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 15px;
+            color: #f5dfae;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #aaa49a;
+            margin-bottom: 45px;
+        }
+
+        /* CARTA */
+
+        .letter {
+            background:
+                linear-gradient(
+                    rgba(30, 25, 20, .9),
+                    rgba(20, 18, 17, .95)
+                );
+            border: 1px solid rgba(201,169,110,.3);
+            padding: clamp(25px, 5vw, 60px);
+            border-radius: 8px;
+            box-shadow:
+                0 20px 80px rgba(0,0,0,.4),
+                inset 0 0 50px rgba(201,169,110,.03);
+            position: relative;
+        }
+
+        .letter::before {
+            content: "✦";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #c9a96e;
+            font-size: 25px;
+        }
+
+        .letter p {
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            color: #e5dfd3;
+        }
+
+        .letter strong {
+            color: #f5dfae;
+        }
+
+        .highlight {
+            text-align: center;
+            font-size: 28px !important;
+            color: #f5dfae !important;
+            margin: 35px 0 !important;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            font-style: italic;
+            color: #c9a96e !important;
+        }
+
+        /* MORAT */
+
+        .music-card {
+            background: linear-gradient(
+                135deg,
+                rgba(42,32,50,.85),
+                rgba(14,18,28,.95)
+            );
+            border: 1px solid rgba(155,112,190,.3);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        }
+
+        .music-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .music-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg,#76519a,#c39b5b);
+            font-size: 28px;
+        }
+
+        .music-header h3 {
+            font-size: 25px;
+        }
+
+        .music-header span {
+            color: #aaa;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* SIRIUS */
+
+        .sirius {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .sirius-portrait {
+            height: 370px;
+            border-radius: 20px;
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #36303c 0 12%,
+                    transparent 13%
+                ),
+                linear-gradient(
+                    145deg,
+                    #1b1a21,
+                    #090b11
+                );
+            border: 1px solid #51465c;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,.5);
+        }
+
+        .sirius-portrait::after {
+            content: "♞";
+            font-size: 180px;
+            color: #201c26;
+            margin-bottom: -20px;
+            text-shadow: 0 0 20px #000;
+        }
+
+        .sirius-text h3 {
+            font-size: 40px;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .sirius-text .nickname {
+            color: #a88ac5;
+            margin-bottom: 20px;
+        }
+
+        .sirius-text p {
+            color: #bbb5ad;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .fact {
+            border-left: 3px solid #a88ac5;
+            padding: 10px 15px;
+            margin: 10px 0;
+            background: rgba(168,138,197,.06);
+        }
+
+        /* INTERACTIVO */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px 20px;
+            border: 1px solid rgba(201,169,110,.2);
+            border-radius: 16px;
+            background: rgba(255,255,255,.025);
+            text-align: center;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #c9a96e;
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #f5dfae;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* BOTÓN SECRETO */
+
+        .secret {
+            text-align: center;
+        }
+
+        .secret-message {
+            display: none;
+            margin: 30px auto 0;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(201,169,110,.07);
+            border: 1px solid rgba(201,169,110,.3);
+            line-height: 1.8;
+            animation: aparecer .8s ease;
+        }
+
+        .secret-message.show {
+            display: block;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* QUIZ */
+
+        .quiz {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+            background: rgba(255,255,255,.025);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(201,169,110,.2);
+        }
+
+        .quiz-question {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #eee;
+        }
+
+        .answers {
+            display: grid;
+            gap: 12px;
+        }
+
+        .answer {
+            padding: 13px;
+            border-radius: 30px;
+            border: 1px solid #4b4250;
+            background: transparent;
+            color: #ddd;
+            cursor: pointer;
+            font-family: inherit;
+            transition: .25s;
+        }
+
+        .answer:hover {
+            border-color: #c9a96e;
+            background: rgba(201,169,110,.08);
+        }
+
+        #quizResult {
+            margin-top: 20px;
+            color: #c9a96e;
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid rgba(255,255,255,.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer strong {
+            color: #c9a96e;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            section {
+                padding: 65px 0;
+            }
+
+            .sirius {
+                grid-template-columns: 1fr;
+            }
+
+            .sirius-portrait {
+                height: 300px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .letter p {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+            .highlight {
+                font-size: 23px !important;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- PORTADA -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            Una historia que tardó en regresar
+        </div>
+
+        <h1>Feliz cumpleaños,<br>CHATITAA 😜</h1>
+
+        <p>
+            Algunas personas se van por un tiempo...
+            pero hay historias que siempre encuentran
+            el camino de regreso.
+        </p>
+
+        <button class="magic-btn" onclick="entrarCarta()">
+            ✨ Abrir la carta
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- CARTA -->
+
+<section id="carta">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Una carta que llegó tarde
+        </h2>
+
+        <p class="section-subtitle">
+            Pero quizá llegó en el momento correcto.
+        </p>
+
+        <article class="letter">
+
+            <p>
+                <strong>Feliz cumpleaños CHATITAA 😜</strong>
+            </p>
+
+            <p>
+                Hoy quería aprovechar para decirte algo que quizá
+                debí decirte hace mucho tiempo.
+            </p>
+
+            <p>
+                Primero, perdón. Perdón por haberme ido durante casi
+                tres años. Sé que tres años no son cualquier cosa y que
+                durante todo ese tiempo pudieron pasar demasiadas cosas,
+                pero aunque estuve lejos, nunca significó que dejaras
+                de importarme.
+            </p>
+
+            <p>
+                A veces uno se aleja pensando que el tiempo va a
+                arreglarlo todo, pero termina dándose cuenta de que
+                hay personas que uno simplemente no quiere perder.
+            </p>
+
+            <p>
+                Y tú eres una de esas personas.
+            </p>
+
+            <p>
+                Si nuestra historia fuera una canción de Morat,
+                probablemente sería una de esas que hablan de volver,
+                de los errores, de extrañar y de darse cuenta de que
+                todavía queda algo que vale la pena cuidar.
+            </p>
+
+            <p>
+                Porque después de todo este tiempo, aquí estoy,
+                intentando recuperar esos momentos que dejamos atrás.
+                Como <strong>“Segundos Platos”</strong>.
+            </p>
+
+            <p>
+                Y si fuera una historia de Harry Potter, supongo que
+                estos casi tres años fueron como perderme en algún
+                rincón del mundo mágico… pero finalmente encontré
+                el camino de regreso.
+            </p>
+
+            <p>
+                Como Snape que, al final de tantos años transcurridos,
+                jamás olvidó a su gran amor.
+            </p>
+
+            <p>
+                Dicen que algunas personas llegan a tu vida por una
+                razón, y yo creo que tú eres de esas personas que,
+                aunque pase el tiempo, siempre terminan encontrando
+                la forma de regresar.
+            </p>
+
+            <p>
+                Por eso hoy no solamente quiero decirte
+                <strong>feliz cumpleaños</strong>, sino también
+                prometerte algo:
+            </p>
+
+            <p class="highlight">
+                Ya no me voy a ir.
+            </p>
+
+            <p>
+                No quiero volver a desaparecer durante años, ni dejar
+                que el tiempo vuelva a convertirse en una distancia
+                entre nosotros.
+            </p>
+
+            <p>
+                No puedo cambiar los casi tres años que pasaron,
+                pero sí puedo decidir qué hacer con todos los años
+                que vienen.
+            </p>
+
+            <p>
+                Quiero estar en tus cumpleaños, en tus días buenos,
+                en los días malos, en las conversaciones sin sentido,
+                en las risas inesperadas y en todos esos pequeños
+                momentos que algún día terminan convirtiéndose
+                en recuerdos importantes.
+            </p>
+
+            <p>
+                Y quizá eso sea lo que más quiero que recuerdes:
+            </p>
+
+            <p class="highlight">
+                Siempre voy a estar.
+            </p>
+
+            <p>
+                Ya sea que lo veas como algo bueno por el hecho de
+                que pasaremos muchas risas y momentos divertidos como
+                siempre, o como algo malo como el hecho de decir:
+                <strong>“Rayos, no me puedo alejar de este niño”.</strong>
+            </p>
+
+            <p>
+                Y regresando al tema principal solo quiero desearte
+                un feliz cumpleaños.
+            </p>
+
+            <p>
+                Sé que llego tarde, sé que es más de un mes tarde,
+                pero ya me conoces, soy alguien que llega en los
+                momentos más inesperados... así como este pequeño regalo.
+            </p>
+
+            <p>
+                Y perdón por haber tardado casi tres años en volver.
+            </p>
+
+            <p class="highlight">
+                Pero esta vez no pienso volver a irme.
+            </p>
+
+            <p class="signature">
+                ATT: Un niño que por más que no quieras<br>
+                seguirá molestándote durante mucho tiempo más. 😌
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- MORAT -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            🎸 Nuestra canción
+        </h2>
+
+        <p class="section-subtitle">
+            Porque algunas canciones parecen contar historias que
+            nosotros nunca supimos cómo explicar.
+        </p>
+
+        <div class="music-card">
+
+            <div class="music-header">
+
+                <div class="music-icon">
+                    ♪
+                </div>
+
+                <div>
+                    <h3>Segundos Platos</h3>
+                    <span>Morat · SI AYER FUERA HOY</span>
+                </div>
+
+            </div>
+
+            <!-- Reproductor oficial de Spotify -->
+
+            <iframe
+                src="https://open.spotify.com/embed/track/1pHZf30WYm6CQukt7TvNPM"
+                height="152"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+
+            <p style="
+                margin-top:20px;
+                color:#999;
+                text-align:center;
+                line-height:1.6;
+            ">
+                Dale play mientras lees la carta. 🎧
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SIRIUS -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            🐺 Sirius Black
+        </h2>
+
+        <p class="section-subtitle">
+            Porque algunas personas saben lo que significa regresar.
+        </p>
+
+        <div class="sirius">
+
+            <div class="sirius-portrait"></div>
+
+            <div class="sirius-text">
+
+                <h3>Sirius Black</h3>
+
+                <div class="nickname">
+                    Padfoot · Gryffindor · Marauder
+                </div>
+
+                <p>
+                    Sirius fue alguien marcado por la distancia,
+                    los errores y los años que pasó lejos de las
+                    personas que quería.
+                </p>
+
+                <p>
+                    Pero cuando finalmente tuvo la oportunidad
+                    de regresar, volvió a luchar por las personas
+                    que todavía significaban algo para él.
+                </p>
+
+                <div class="fact">
+                    🪄 Perteneció a Gryffindor.
+                </div>
+
+                <div class="fact">
+                    🐾 Su forma de Animago era un perro negro.
+                </div>
+
+                <div class="fact">
+                    ⚡ Fue el padrino de Harry Potter.
+                </div>
+
+                <div class="fact">
+                    🗺️ Fue uno de los Merodeadores.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COSAS INTERACTIVAS -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            ✨ Algunas cosas que encontré
+        </h2>
+
+        <p class="section-subtitle">
+            Porque una carta normal era demasiado aburrida.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">🎸</div>
+
+                <h3>Morat</h3>
+
+                <p>
+                    Una banda que sabe convertir historias,
+                    despedidas y regresos en canciones.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🪄</div>
+
+                <h3>Hogwarts</h3>
+
+                <p>
+                    Porque hasta las historias más complicadas
+                    merecen una segunda oportunidad.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🐺</div>
+
+                <h3>Padfoot</h3>
+
+                <p>
+                    Lealtad, amistad y la idea de que algunas
+                    personas siempre encuentran el camino de vuelta.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MENSAJE SECRETO -->
+
+<section>
+
+    <div class="container secret">
+
+        <h2 class="section-title">
+            🔐 Hay algo más...
+        </h2>
+
+        <p class="section-subtitle">
+            Pero tendrás que abrirlo tú.
+        </p>
+
+        <button class="magic-btn" onclick="mensajeSecreto()">
+            Alohomora ✨
+        </button>
+
+        <div id="secretMessage" class="secret-message">
+
+            <h3 style="color:#f5dfae; margin-bottom:15px;">
+                Si llegaste hasta aquí...
+            </h3>
+
+            <p>
+                Probablemente ya te diste cuenta de que esta página
+                no era solamente por tu cumpleaños.
+            </p>
+
+            <p style="margin-top:15px;">
+                También era mi manera un poquito rara de decirte:
+            </p>
+
+            <p style="
+                font-size:25px;
+                color:#f5dfae;
+                margin-top:20px;
+            ">
+                Gracias por seguir aquí. ❤️
+            </p>
+
+            <p style="margin-top:20px;">
+                Y sí...
+                probablemente seguiré molestándote.
+                Muchísimo.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            🧙‍♂️ Test de amistad
+        </h2>
+
+        <p class="section-subtitle">
+            Una pregunta importante...
+        </p>
+
+        <div class="quiz">
+
+            <div class="quiz-question">
+                ¿Qué harías si este niño vuelve después de casi 3 años?
+            </div>
+
+            <div class="answers">
+
+                <button class="answer" onclick="respuesta(1)">
+                    A) Lo perdono porque lo extrañaba. 😭
+                </button>
+
+                <button class="answer" onclick="respuesta(2)">
+                    B) Lo mando a Azkaban. 🗿
+                </button>
+
+                <button class="answer" onclick="respuesta(3)">
+                    C) Lo perdono pero ahora me tendrá que aguantar. 😈
+                </button>
+
+            </div>
+
+            <div id="quizResult"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<footer>
+
+    <p>
+        Hecho con un poquito de magia,
+        un poquito de música y demasiadas ganas de molestar. ✨
+    </p>
+
+    <p style="margin-top:15px;">
+        <strong>Feliz cumpleaños, CHATITAA 😜</strong>
+    </p>
+
+    <p style="margin-top:25px;">
+        Esta vez no me voy.
+    </p>
+
+</footer>
+
+
+<script>
+
+    /* SCROLL A LA CARTA */
+
+    function entrarCarta() {
+
+        document.getElementById("carta").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* MENSAJE SECRETO */
+
+    function mensajeSecreto() {
+
+        const mensaje =
+            document.getElementById("secretMessage");
+
+        mensaje.classList.toggle("show");
+
+    }
+
+
+    /* QUIZ */
+
+    function respuesta(opcion) {
+
+        const resultado =
+            document.getElementById("quizResult");
+
+        if (opcion === 1) {
+
+            resultado.innerHTML =
+                "🥹 Esa respuesta definitivamente cuenta.";
+
+        }
+
+        else if (opcion === 2) {
+
+            resultado.innerHTML =
+                "💀 ¡¿AZKABAN?! Después de casi tres años, qué cruel.";
+
+        }
+
+        else {
+
+            resultado.innerHTML =
+                "😈 Exactamente. Ese era el verdadero objetivo.";
+
+        }
+
+    }
+
+
+    /* EFECTO DE ESTRELLAS AL HACER CLICK */
+
+    document.addEventListener("click", function(e) {
+
+        const estrella = document.createElement("span");
+
+        estrella.innerHTML = "✦";
+
+        estrella.style.position = "fixed";
+        estrella.style.left = e.clientX + "px";
+        estrella.style.top = e.clientY + "px";
+        estrella.style.color = "#f5dfae";
+        estrella.style.fontSize = "18px";
+        estrella.style.pointerEvents = "none";
+        estrella.style.zIndex = "9999";
+
+        document.body.appendChild(estrella);
+
+        estrella.animate(
+            [
+                {
+                    transform: "translateY(0) scale(1)",
+                    opacity: 1
+                },
+                {
+                    transform: "translateY(-45px) scale(0)",
+                    opacity: 0
+                }
+            ],
+            {
+                duration: 800,
+                easing: "ease-out"
+            }
+        );
+
+        setTimeout(() => {
+            estrella.remove();
+        }, 800);
+
+    });
+
+</script>
+
+</body>
+</html>
